@@ -9,24 +9,22 @@ from common.config import host, port
 from common.utils import EventBus
 from appserver.core import MessageSever
 from client.core import ClientClass
-from client.presentation import mainAppWindow
+from client.presentation import MainAppWindow
 
 
 def init_server():
     server = MessageSever(config.host, config.port)
     server.start()
-    ACCEPT_THREAD = Thread(target=server.listener)
-    ACCEPT_THREAD.start()
-    ACCEPT_THREAD.join()
+    accept_thread = Thread(target=server.listener)
+    accept_thread.start()
+    accept_thread.join()
     server.stop()
 
 
 def init_client():
-    clientClass = ClientClass(host=host, port=port)
-    client_thread = Thread(target=clientClass.receive)
+    client_class = ClientClass(host=host, port=port)
+    client_thread = Thread(target=client_class.receive)
     client_thread.start()
-
-
 
 
 if __name__ == '__main__':
@@ -36,9 +34,7 @@ if __name__ == '__main__':
         init_server()
     if arguments.__contains__("client"):
         app = QtWidgets.QApplication(list())
-        windowClass = mainAppWindow(app)
+        windowClass = MainAppWindow(app)
         windowClass.show()
         init_client()
         sys.exit(app.exec())
-
-
