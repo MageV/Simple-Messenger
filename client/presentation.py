@@ -1,12 +1,9 @@
-import asyncio
-import sys
-
-from PyQt6.QtGui import QShortcut, QKeySequence
+from PyQt6.QtGui import QKeySequence
 from PyQt6.QtWidgets import QMainWindow
 
-from app_config.config import EventNames
-from app_config.utils import EventBus
 from client.uiforms.mainform import Ui_MainWindow
+from common.config import EventNames
+from common.utils import EventBus
 
 
 class mainAppWindow(QMainWindow, Ui_MainWindow):

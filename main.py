@@ -4,9 +4,9 @@ from threading import Thread
 
 from PyQt6 import QtWidgets
 
-from app_config import config
-from app_config.config import host, port
-from app_config.utils import EventBus
+from common import config
+from common.config import host, port
+from common.utils import EventBus
 from appserver.core import MessageSever
 from client.core import ClientClass
 from client.presentation import mainAppWindow

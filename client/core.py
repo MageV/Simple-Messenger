@@ -1,10 +1,8 @@
-import asyncio
 import traceback
 from socket import socket, AF_INET, SOCK_STREAM
 
-from app_config import config
-from app_config.config import EventNames
-from app_config.utils import EventBus
+from common.config import EventNames
+from common.utils import EventBus
 
 
 class ClientClass:
